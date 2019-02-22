@@ -1,0 +1,34 @@
+﻿<Window x:Class="Laboratorna01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="500">
+    <Grid>
+        <DatePicker SelectedDate="{Binding BirthDate}" HorizontalAlignment="Right" Width="200" 
+                    Margin="0,30,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBlock Text="Enter date of your birthday: " HorizontalAlignment="Left" Width="200" Margin="30,30,0,0" 
+                 VerticalAlignment="Top" Height="50" TextAlignment="Center"/>
+        <Button Name="SubmitButton" Command="{Binding DateSubmitCommand}" Content="Find out my sign of zodiacs" 
+                HorizontalAlignment="Center" Width="200" Margin="10,100,0,0"
+                VerticalAlignment="Top" Height="30" Background="LightCoral"/>
+        <Grid Name="InfoShowGrid" Visibility="{Binding Visibility, Mode=OneWay}" HorizontalAlignment="Stretch" 
+              Height="150" Margin="0,150,0,25.4" VerticalAlignment="Stretch">
+            <TextBlock Name="AgeTextBlock" Text="{Binding AgeT, StringFormat='Your Age: {0}', Mode=OneWay}"
+                HorizontalAlignment="Center" Margin="30,0,0,0" TextWrapping="Wrap" 
+                VerticalAlignment="Top" TextAlignment="Center" />
+            <TextBlock Name="AstrologicalSignextBlock"
+                HorizontalAlignment="Right" Margin="0,70,50,0" TextWrapping="Wrap" 
+                VerticalAlignment="Top" Height="42" Width="120" TextAlignment="Center">
+                <Run Text="Your Astrological Sign:"/><LineBreak/><Run Text="{Binding AstrologicalSign, Mode=OneWay}"/>
+            </TextBlock>
+            <TextBlock Name="ChineeseZodiacTextBlock" 
+                HorizontalAlignment="Left" Margin="50,70,0,0" TextWrapping="Wrap" 
+                VerticalAlignment="Top"
+                Height="40" Width="100" TextAlignment="Center">
+                <Run Text="Your Zodiac Sign:"/><LineBreak/><Run Text="{Binding ZodiacSign, Mode=OneWay}"/>
+            </TextBlock>
+        </Grid>
+    </Grid>
+</Window>
